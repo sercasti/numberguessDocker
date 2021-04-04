@@ -1,0 +1,13 @@
+.project
+.settings/
+.DS_Store
+target/
+*.jar
+*.war
+.mvn/
+bin/
+build/
+tmp/
+.metadata
+.classpath
+.project
