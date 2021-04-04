@@ -10,7 +10,7 @@ phases:
       - cd $CODEBUILD_SRC_DIR
       - ls -ltr
       - pwd
-      - $CODEBUILD_SRC_DIR/docker build -t numberguesser:latest .
+      - docker build -t numberguesser:latest .
       - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 813138573856.dkr.ecr.us-east-2.amazonaws.com/numberguesser/numberguesserlb
       - docker tag numberguesser:latest 813138573856.dkr.ecr.us-east-2.amazonaws.com/numberguesser/numberguesserlb;
       - docker push 813138573856.dkr.ecr.us-east-2.amazonaws.com/numberguesser/numberguesserlb;
