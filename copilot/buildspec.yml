@@ -10,8 +10,8 @@ phases:
       - echo "cd into $CODEBUILD_SRC_DIR"
       - cd $CODEBUILD_SRC_DIR
       # Download the copilot linux binary.
-      - wget https://ecs-cli-v2-release.s3.amazonaws.com/copilot-linux-v1.4.0
-      - mv ./copilot-linux-v1.4.0 ./copilot-linux
+      - wget https://ecs-cli-v2-release.s3.amazonaws.com/copilot-linux-v1.7.1
+      - mv ./copilot-linux-v1.7.1 ./copilot-linux
       - chmod +x ./copilot-linux
   build:
     commands:
@@ -58,8 +58,8 @@ phases:
           if [ -f "$ADDONSFILE" ]; then
             tmp=$(mktemp)
             timestamp=$(date +%s)
-            aws s3 cp "$ADDONSFILE" "s3://stackset-numberguesser-i-pipelinebuiltartifactbuc-1u70sl7c6fyzl/manual/$timestamp/$workload.addons.stack.yml";
-            jq --arg a "https://stackset-numberguesser-i-pipelinebuiltartifactbuc-1u70sl7c6fyzl.s3.us-east-2.amazonaws.com/manual/$timestamp/$workload.addons.stack.yml" '.Parameters.AddonsTemplateURL = $a' ./infrastructure/$workload-test.params.json > "$tmp" && mv "$tmp" ./infrastructure/$workload-test.params.json
+            aws s3 cp "$ADDONSFILE" "s3://stackset-numberguess-inf-pipelinebuiltartifactbuc-ik7t2js54d9i/manual/$timestamp/$workload.addons.stack.yml";
+            jq --arg a "https://stackset-numberguess-inf-pipelinebuiltartifactbuc-ik7t2js54d9i.s3.us-west-2.amazonaws.com/manual/$timestamp/$workload.addons.stack.yml" '.Parameters.AddonsTemplateURL = $a' ./infrastructure/$workload-test.params.json > "$tmp" && mv "$tmp" ./infrastructure/$workload-test.params.json
           fi
         done;
       # Build images

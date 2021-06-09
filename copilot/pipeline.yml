@@ -1,7 +1,7 @@
 # This YAML file defines the relationship and deployment ordering of your environments.
 
 # The name of the pipeline
-name: pipeline-numberguesser-numberguessDocker
+name: pipeline-numberguess-numberguessDocker
 
 # The version of the schema used in this template
 version: 1
@@ -16,6 +16,8 @@ source:
   properties:
     branch: main
     repository: https://github.com/sercasti/numberguessDocker
+    # Optional: specify the name of an existing CodeStar Connections connection.
+    # connection_name: a-connection
 
 # The deployment section defines the order the pipeline will deploy
 # to your environments.
